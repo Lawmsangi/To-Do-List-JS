@@ -22,10 +22,10 @@ body {
   border-bottom: 1px solid #ebe8e8;
 }
 
-.to-do h1 {
+.to-do h2 {
   font-size: 1.5rem;
-  margin: 0;
   font-weight: 100;
+  margin: 0;
   padding: 10px;
 }
 
