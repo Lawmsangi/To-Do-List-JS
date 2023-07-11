@@ -1,0 +1,70 @@
+* {
+  list-style: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.container {
+  width: 60%;
+  margin: 50px auto;
+  box-shadow: 0 0 15px #ebe8e8;
+}
+
+.to-do {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ebe8e8;
+}
+
+.to-do h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 100;
+  padding: 10px;
+}
+
+form input {
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+}
+
+form > input::placeholder {
+  font-weight: 500;
+  color: #000;
+  opacity: 1;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+.remove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #eee;
+}
+
+.remove a {
+  text-decoration: none;
+  color: #b4a8a8;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.remove a:hover {
+  color: #000;
+}
+
+.task {
+  padding: 10px;
+}
