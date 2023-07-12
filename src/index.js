@@ -1,32 +1,47 @@
+import { addTaskToStorage, addTaskToUI } from './modules/add.js';
+import editTask from './modules/edit.js';
+import { removeFromUI, removeFromStorage } from './modules/remove.js';
+import { getTask } from './modules/storage.js';
+import updateIndex from './modules/updateIndex.js';
 import './style.css';
 
-function component() {
-  const tasks = [
-    {
-      description: 'Clean the room',
-      completed: false,
-      index: 1,
-    },
-    {
-      description: 'Read Books',
-      completed: false,
-      index: 2,
-    },
-  ];
-
-  const listToDo = document.getElementById('list-toDo');
-  tasks.forEach((task) => {
-    const list = document.createElement('div');
-    list.className = 'to-do';
-    list.innerHTML = `
-                                <div class = "task">
-                                    <input type="checkbox" ${task.completed}  />
-                                    ${task.description}
-                                </div>    
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
-                            `;
-    listToDo.appendChild(list);
+const editTasks = () => {
+  const editContents = document.querySelectorAll('.span');
+  editContents.forEach((item, index) => {
+    item.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        editTask(index + 1, e.currentTarget.innerHTML);
+        item.blur();
+      }
+    });
   });
-}
+};
 
-document.body.appendChild(component());
+const removeTasks = () => {
+  const removeButtons = document.querySelectorAll('.remove-btn');
+  removeButtons.forEach((button) => button.addEventListener('click', (e) => {
+    removeFromStorage(e.currentTarget.parentElement.children[1].innerHTML);
+    removeFromUI(e);
+    updateIndex();
+  }));
+};
+
+const form = document.getElementById('form-list');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const addInput = document.getElementById('add-input');
+  const description = addInput.value;
+  addTaskToUI(description);
+  addTaskToStorage(description);
+  editTasks();
+  removeTasks();
+  addInput.value = '';
+});
+
+const tasks = getTask();
+tasks.forEach((item) => {
+  addTaskToUI(item.description);
+});
+removeTasks();
+editTasks();
