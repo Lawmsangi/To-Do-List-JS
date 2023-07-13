@@ -46,6 +46,12 @@ input:focus {
   border: none;
 }
 
+.remove-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+
 .remove {
   display: flex;
   justify-content: center;
@@ -67,4 +73,9 @@ input:focus {
 
 .task {
   padding: 10px;
+}
+
+.span {
+  text-decoration: none;
+  outline: none;
 }
