@@ -1,4 +1,4 @@
-const { getTask } = require('./storage.js');
+const { getTask } = require("./storage.js");
 
 const removeFromUI = (e) => {
   e.currentTarget.parentElement.remove();
