@@ -51,7 +51,7 @@ To Do List.
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo Link](Coming Soon)
+- [Live Demo Link](https://lawmsangi.github.io/To-Do-List-JS/dist/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
