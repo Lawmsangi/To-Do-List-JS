@@ -10,4 +10,12 @@ const removeFromStorage = (description) => {
   localStorage.setItem('tasks', JSON.stringify(filteredTasks));
 };
 
-module.exports = { removeFromUI, removeFromStorage };
+const removeCompletedTasks = () => {
+  const tasks = getTask();
+  const filteredTasks = tasks.filter((task) => task.completed === false);
+  localStorage.setItem('tasks', JSON.stringify(filteredTasks));
+ 
+  
+}
+
+module.exports = { removeFromUI, removeFromStorage, removeCompletedTasks };

@@ -60,14 +60,15 @@ input:focus {
   background-color: #eee;
 }
 
-.remove a {
+.remove button {
   text-decoration: none;
   color: #b4a8a8;
   font-size: 24px;
   font-weight: 500;
+  border: none;
 }
 
-.remove a:hover {
+.remove button:hover {
   color: #000;
 }
 
@@ -78,4 +79,8 @@ input:focus {
 .span {
   text-decoration: none;
   outline: none;
+}
+
+.line {
+  text-decoration: line-through;
 }
