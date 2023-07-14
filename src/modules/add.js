@@ -4,8 +4,9 @@ const addTaskToUI = (description) => {
   const tasks = document.getElementById('list-toDo');
   const task = document.createElement('div');
   task.className = 'to-do';
+  task.classList.add = 'completed';
   task.innerHTML = `
-                        <input type="checkbox" class= 'task'/>
+                        <input type="checkbox" class= 'task' id="checkbox"/>
                         <span class="span" spellcheck="false" contenteditable="true">${description}</span>
                         <button class = 'remove-btn'><i class="fa-solid fa-trash"></i></button>
      `;
