@@ -7,6 +7,15 @@ import { getTask } from './modules/storage.js';
 import updateIndex from './modules/updateIndex.js';
 import './style.css';
 
+const display = () => {
+  const list = document.getElementById('list-toDo');
+  list.innerHTML = '';
+  const tasks = getTask();
+  tasks.forEach((task) => {
+    addTaskToUI(task.description);
+  });
+};
+
 const editTasks = () => {
   const editContents = document.querySelectorAll('.span');
   editContents.forEach((item, index) => {
@@ -31,14 +40,14 @@ const removeTasks = () => {
 
 const checkTasks = () => {
   const checkBox = document.querySelectorAll('.task');
-  checkBox.forEach((item,index) =>{
-    checkUI(item,index,item.parentElement.children[1])
-  })
+  checkBox.forEach((item, index) => {
+    checkUI(item, index, item.parentElement.children[1]);
+  });
   checkBox.forEach((item, index) => {
     item.addEventListener('change', (e) => {
-      e.preventDefault()
-      checkTask(index)
-       checkUI(item,index,item.parentElement.children[1])
+      e.preventDefault();
+      checkTask(index);
+      checkUI(item, index, item.parentElement.children[1]);
     });
   });
 };
@@ -46,15 +55,9 @@ const checkTasks = () => {
 const removeAll = document.getElementById('remove-all');
 removeAll.addEventListener('click', () => {
   removeCompletedTasks();
-   const list = document.getElementById('list-toDo');
-  list.innerHTML = ''
-  const tasks = getTask();
-  tasks.forEach(task => {
-    addTaskToUI(task.description)
-  })
+  display();
   updateIndex();
-  
-})
+});
 
 const form = document.getElementById('form-list');
 form.addEventListener('submit', (e) => {
@@ -64,7 +67,7 @@ form.addEventListener('submit', (e) => {
   addTaskToUI(description);
   addTaskToStorage(description);
   addInput.value = '';
-  location.reload();
+  window.location.reload();
 });
 
 const tasks = getTask();
