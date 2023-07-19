@@ -1,5 +1,3 @@
-const { savedTask, getTask } = require('./storage.js');
-
 const addTaskToUI = (description) => {
   const tasks = document.getElementById('list-toDo');
   const task = document.createElement('div');
@@ -14,14 +12,14 @@ const addTaskToUI = (description) => {
 };
 
 const addTaskToStorage = (description) => {
-  const tasks = getTask();
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const newTask = {
     description,
     completed: false,
     index: tasks.length + 1,
   };
   tasks.push(newTask);
-  savedTask(tasks);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
 module.exports = { addTaskToStorage, addTaskToUI };
