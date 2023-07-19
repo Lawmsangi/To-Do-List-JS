@@ -1,15 +1,22 @@
-const removeFromUI = (e) => {
-  e.currentTarget.parentElement.remove();
+const removeFromUI = (item) => {
+  const task = document.getElementById(`${item}`);
+  task.remove();
 };
 
 const removeFromStorage = (description) => {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  const filteredTasks = tasks.filter((task) => task.description !== description);
+  const tasks = [{
+    description: 'walk',
+    completed: true,
+    index: 1,
+  }];
+  const filteredTasks = tasks.filter(
+    (task) => task.description !== description,
+  );
   localStorage.setItem('tasks', JSON.stringify(filteredTasks));
 };
 
 const removeCompletedTasks = () => {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const tasks = [];
   const filteredTasks = tasks.filter((task) => task.completed === false);
   localStorage.setItem('tasks', JSON.stringify(filteredTasks));
 };

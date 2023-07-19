@@ -70,10 +70,7 @@ form.addEventListener('submit', (e) => {
   window.location.reload();
 });
 
-const tasks = getTask();
-tasks.forEach((item) => {
-  addTaskToUI(item.description);
-});
+display();
 removeTasks();
 editTasks();
 checkTasks();
