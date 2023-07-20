@@ -1,9 +1,8 @@
-import { getTask, savedTask } from './storage.js';
-
 const editTask = (index, edit) => {
-  const tasks = getTask();
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks[index].description = edit;
-  savedTask(tasks);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  return tasks[index].description;
 };
 
-export default editTask;
+module.exports = editTask;

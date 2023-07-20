@@ -1,7 +1,5 @@
-const { getTask, savedTask } = require('./storage.js');
-
 const checkTask = (index) => {
-  const tasks = getTask();
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
   if (tasks[index].completed === false) {
     tasks[index].completed = true;
@@ -9,7 +7,8 @@ const checkTask = (index) => {
     tasks[index].completed = false;
   }
 
-  savedTask(tasks);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  return tasks[index].completed;
 };
 
 module.exports = checkTask;
