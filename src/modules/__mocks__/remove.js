@@ -16,7 +16,7 @@ const removeFromStorage = (description) => {
 };
 
 const removeCompletedTasks = () => {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   const filteredTasks = tasks.filter((task) => task.completed === false);
   localStorage.setItem('tasks', JSON.stringify(filteredTasks));
 };

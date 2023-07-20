@@ -18,7 +18,7 @@ describe('Remove items to TodoList', () => {
     expect(setTasks).toHaveBeenCalled();
   });
 
-  it("Removes completed", () => {
+  it('Removes completed', () => {
     removeCompletedTasks();
     expect(getTasks).toHaveBeenCalled();
     expect(setTasks).toHaveBeenCalled();

@@ -1,5 +1,5 @@
 const checkTask = (index) => {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   if (tasks[index].completed === false) {
     tasks[index].completed = true;
@@ -7,7 +7,7 @@ const checkTask = (index) => {
     tasks[index].completed = false;
   }
 
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem('tasks', JSON.stringify(tasks));
   return tasks[index].completed;
 };
 
